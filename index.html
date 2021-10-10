@@ -1,1 +1,102 @@
-Hello
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Dan & Alexis 4ever</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+
+    body {
+      max-width: 960px;
+      margin: auto;
+      background-color: white;
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+    }
+    h2, h1, h3 {
+      margin-top: 0;
+    }
+    .small {
+      font-size: .75rem;
+      color: gray;
+    }
+    .love {
+      margin-top: 5rem;
+      color: red;
+      font-size: .75rem;
+    }
+    #aPhoto {
+      width: 400px;
+    }
+  </style>
+  <script>
+    const MAGICAL_MONTH = 10
+    const MAGICAL_DATE = 10
+    const MAGICAL_YEAR = 2020 // Fuck covid
+    const MAGICAL_DAY = new Date(MAGICAL_YEAR, MAGICAL_MONTH - 1, MAGICAL_DATE);
+    const MILLI2YEAR = 1000 * 60 * 60 * 24 * 365.25;
+
+    const main = async () => {
+      await updateAll()
+    }
+
+    const updateAll = async () => {
+      const aYes = document.getElementById("aYes")
+      const aYear = document.getElementById("aYear");
+      const aCounter = document.getElementById("aCounter");
+      const aPhoto = document.getElementById("aPhoto");
+      const aSad = document.getElementById("aSad");
+      
+
+      var today = new Date();
+      var month = today.getMonth() + 1;
+      var date = today.getDate();
+      var year = today.getFullYear();
+      
+      var milli = today.getTime() - MAGICAL_DAY.getTime();
+      // Convert to decimal years
+      var dYear = (today - MAGICAL_DAY) / MILLI2YEAR;
+      aCounter.textContent = `${dYear.toFixed(9)} years`;
+
+      if (month === MAGICAL_MONTH && date === MAGICAL_DATE) {
+        aYes.textContent = "Yes!";
+        var n = year - MAGICAL_YEAR;
+        aYear.textContent = `It is our ${n} year anniversary!`;
+        aPhoto.src = "./happy.jpg";
+        aSad.textContent = "";
+
+      }
+      else {
+        aYes.textContent = "No!";
+        aYear.textContent = "";
+        aPhoto.src = "./sad.JPG";
+        aSad.textContent = "I know, we are sad too..."
+      }
+    }
+
+    setTimeout(async function update() {
+      await updateAll();
+      setTimeout(update, 500);
+    }, 0);
+
+  </script>
+</head>
+
+<body>
+  <h1 id="aYes"></h1>
+  <p class="small" id="aSad"></p>
+  <img src="" id="aPhoto">
+  <h2 id="aYear"></h2>
+  <p>We have been married for</p>
+  <h3 id="aCounter"></h3>
+  <p class="small">and counting</p>
+  <p class="love">I love you Alexis (♥ω♥ )</p>
+</body>
+<script>document.body.addEventListener("load", main());</script>
+</html>
