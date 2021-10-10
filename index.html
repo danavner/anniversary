@@ -13,9 +13,10 @@
   <style>
 
     body {
+      padding-top: 1rem;
       max-width: 960px;
       margin: auto;
-      background-color: white;
+      background-color: ghostwhite;
       text-align: center;
       font-family: 'Roboto', sans-serif;
     }
@@ -32,8 +33,9 @@
       font-size: .75rem;
     }
     #aPhoto {
-      width: 400px;
+      max-width: 400px;
       height: auto;
+      border-radius: .25rem;
     }
   </style>
   <script>
@@ -77,7 +79,7 @@
         aYes.textContent = "No!";
         aYear.textContent = "";
         aPhoto.src = "./sad.JPG";
-        aSad.textContent = "I know, we are sad too..."
+        aSad.textContent = ""
       }
     }
 
@@ -90,6 +92,7 @@
 </head>
 
 <body>
+  <h3>Is it our anniversary?</h2>
   <h1 id="aYes"></h1>
   <p class="small" id="aSad"></p>
   <img src="" id="aPhoto">
