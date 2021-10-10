@@ -1,3 +1,3 @@
 # anniversary
 
-isitdna.today
+https://isitdna.today
