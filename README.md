@@ -1,3 +1,2 @@
 # anniversary
-
-https://isitdna.today
+isitouranniversary.today
